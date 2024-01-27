@@ -71,7 +71,7 @@ h4 {
 	font-weight: 700;
 }
 
-.create-todo input[type="text"] {
+.create-bill input[type="text"] {
 	display: block;
 	width: 100%;
 	font-size: 1.125rem;
@@ -83,14 +83,14 @@ h4 {
 	margin-bottom: 1.5rem;
 }
 
-.create-todo .options {
+.create-bill .options {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 1rem;
 	margin-bottom: 1.5rem;
 }
 
-.create-todo .options label {
+.create-bill .options label {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -146,13 +146,13 @@ input:checked ~ .bubble::after {
 	opacity: 1;
 }
 
-.create-todo .options label div {
+.create-bill .options label div {
 	color: var(--dark);
 	font-size: 1.125rem;
 	margin-top: 1rem;
 }
 
-.create-todo input[type="submit"] {
+.create-bill input[type="submit"] {
 	display: block;
 	width: 100%;
 	font-size: 1.125rem;
@@ -165,15 +165,15 @@ input:checked ~ .bubble::after {
 	transition: 0.2s ease-in-out;
 }
 
-.create-todo input[type="submit"]:hover {
+.create-bill input[type="submit"]:hover {
 	opacity: 0.75;
 }
 
-.todo-list .list {
+.bill-list .list {
 	margin: 1rem 0;
 } 
 
-.todo-list .todo-item {
+.bill-list .bill-item {
 	display: flex;
 	align-items: center;
 	background-color: #FFF;
@@ -183,27 +183,27 @@ input:checked ~ .bubble::after {
 	margin-bottom: 1rem;
 }
 
-.todo-item label {
+.bill-item label {
 	display: block;
 	margin-right: 1rem;
 	cursor: pointer;
 }
 
-.todo-item .todo-content {
+.bill-item .bill-content {
 	flex: 1 1 0%;
 }
 
-.todo-item .todo-content input {
+.bill-item .bill-content input {
 	color: var(--dark);
 	font-size: 1.125rem;
 }
 
-.todo-item .actions {
+.bill-item .actions {
 	display: flex;
 	align-items: center;
 }
 
-.todo-item .actions button {
+.bill-item .actions button {
 	display: block;
 	padding: 0.5rem;
 	border-radius: 0.25rem;
@@ -212,20 +212,20 @@ input:checked ~ .bubble::after {
 	transition: 0.2s ease-in-out;
 }
 
-.todo-item .actions button:hover {
+.bill-item .actions button:hover {
 	opacity: 0.75;
 }
 
-.todo-item .actions .edit {
+.bill-item .actions .edit {
 	margin-right: 0.5rem;
 	background-color: var(--primary);
 }
 
-.todo-item .actions .delete {
+.bill-item .actions .delete {
 	background-color: var(--danger);
 }
 
-.todo-item.done .todo-content input {
+.bill-item.done .bill-content input {
 	text-decoration: line-through;
 	color: var(--grey);
 }

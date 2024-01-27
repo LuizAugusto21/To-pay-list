@@ -1,23 +1,23 @@
 <script setup>
 import { ref, onMounted, computed, watch } from "vue";
 
-const todos = ref([]);
+const bills = ref([]);
 const name = ref("");
 
 const input_content = ref("");
 const input_category = ref(null);
 
-const todos_asc = computed(() =>
-  todos.value.sort((a, b) => {
+const bills_asc = computed(() =>
+  bills.value.sort((a, b) => {
     return b.createdAt - a.createdAt;
   })
 );
 
 
 watch(
-  todos,
+  bills,
   (newVal) => {
-    localStorage.setItem("todos", JSON.stringify(newVal));
+    localStorage.setItem("bills", JSON.stringify(newVal));
   },
   { deep: true }
 );
@@ -29,12 +29,12 @@ watch(name, (newVal) => {
 
 
 
-const addTodo = () => {
+const addBill = () => {
   if (input_content.value.trim === '' || input_category.value === null) {
     return;
   }
 
-  todos.value.push({
+  bills.value.push({
     content: input_content.value,
     category: input_category.value,
     done: false,
@@ -44,15 +44,15 @@ const addTodo = () => {
 
 };
 
-const removeTodo = todo => {
-    todos.value = todos.value.filter(t => t !== todo)
+const removeBill = bill => {
+    bills.value = bills.value.filter(t => t !== bill)
 }
 
 
 
 onMounted(() => {
   name.value = localStorage.getItem('name') || '';
-  todos.value = JSON.parse(localStorage.getItem('todos')) || [];
+  bills.value = JSON.parse(localStorage.getItem('bills')) || [];
 });
 </script>
 
@@ -64,9 +64,9 @@ onMounted(() => {
       </h1>
     </section>
 
-    <section class="create-todo">
+    <section class="create-bill">
 
-      <form id="new-todo-form" @submit.prevent="addTodo">
+      <form id="new-bill-form" @submit.prevent="addBill">
         <h4>Quais contas pagar?</h4>
         <input
           type="text"
@@ -105,25 +105,25 @@ onMounted(() => {
       </form>
     </section>
 
-    <section class="todo-list">
+    <section class="bill-list">
       <h3>Contas a Pagar</h3>
-      <div class="list" id="todo-list">
+      <div class="list" id="bill-list">
         <div
-          v-for="todo in todos_asc"
-          :class="`todo-item ${todo.done && 'done'}`"
+          v-for="bill in bills_asc"
+          :class="`bill-item ${bill.done && 'done'}`"
         >
         
             <label>
-                <input type="checkbox" v-model="todo.done">
-                <span :class="`bubble ${todo.category}`"></span>
+                <input type="checkbox" v-model="bill.done">
+                <span :class="`bubble ${bill.category}`"></span>
             </label>
 
-            <div class="todo-content">
-                <input type="text" v-model="todo.content">
+            <div class="bill-content">
+                <input type="text" v-model="bill.content">
             </div>
 
             <div class="actions">
-                <button class="delete" @click="removeTodo(todo)">Delete</button>
+                <button class="delete" @click="removeBill(bill)">Delete</button>
             </div>
     
         </div>
