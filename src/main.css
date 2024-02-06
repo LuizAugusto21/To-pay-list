@@ -71,7 +71,7 @@ h4 {
 	font-weight: 700;
 }
 
-.create-bill input[type="text"] {
+.create-bill input[type="text"], .create-bill input[type="number"] {
 	display: block;
 	width: 100%;
 	font-size: 1.125rem;
@@ -196,6 +196,12 @@ input:checked ~ .bubble::after {
 .bill-item .bill-content input {
 	color: var(--dark);
 	font-size: 1.125rem;
+	
+}
+
+.bill-item .bill-content .bill-price {
+	font-size: 1rem;
+	color: var(--grey);
 }
 
 .bill-item .actions {
@@ -225,7 +231,12 @@ input:checked ~ .bubble::after {
 	background-color: var(--danger);
 }
 
-.bill-item.done .bill-content input {
+.bill-item.done .bill-content input{
+	text-decoration: line-through;
+	color: var(--grey);
+}
+
+.bill-item.done .bill-content div {
 	text-decoration: line-through;
 	color: var(--grey);
 }
